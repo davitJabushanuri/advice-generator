@@ -1,0 +1,21 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-family: $font-primary;
+	color: $light-cyan;
+}
+
+main {
+	min-height: 100vh;
+	background-color: $dark-blue;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 1.2rem;
+}
+
+svg {
+	background-color: black;
+}

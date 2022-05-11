@@ -1,128 +1,102 @@
-<!-- PROJECT LOGO -->
-<div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="./images/image-qr-code.png" alt="Logo" width="80" height="80">
-  </a>
+# Advice generator
 
-  <h3 align="center">QR code component</h3>
-  <p align="center">
-    This is a solution to the <a href='https://www.frontendmentor.io/challenges/qr-code-component-iux_sIO_H'>QR code component challenge on Frontend Mentor</a>.
-    <br />
-    <br />
-    <a href="https://davitjabushanuri.github.io/qr-code-component/">View Demo</a>
-    ·
-    <a href="https://github.com/davitJabushanuri/qr-code-component/issues">Report Bug</a>
-  </p>
-</div>
+This is a solution to the [Advice generator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db).
 
+## :beginner: Overview
 
+this app generates new advice on every button click.
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
+[View demo](https://davitjabushanuri.github.io/advice-generator/)
 
+## :camera:
 
+![](./templates/template.png)
 
-<!-- ABOUT THE PROJECT -->
-## About The Project
+## :zap: Usage
 
-[![Product Name Screen Shot][product-screenshot]](https://davitjabushanuri.github.io/qr-code-component/)
+You can click on the Dice icon to generate new advice. it fetches random advice from [Advice Slip API](https://api.adviceslip.com).
 
-### Built With
-
-* [HTML](https://html.com)
-* [CSS](https://www.w3.org/Style/CSS/Overview.en.html)
-
-
-<!-- GETTING STARTED -->
-## Getting Started
+### :notebook: Pre-Requisites
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
+- [git](https://git-scm.com/)
+- [NodeJS](https://nodejs.dev/)
+- [npm](https://npmjscom/)
 
-* [git](https://git-scm.com/downloads)
-* [NodeJS](https://nodejs.org/en/download/)
-* [npm](https://www.npmjs.com/)
+### :electric_plug: Installation
 
-All of these must be available in your PATH. To verify things are set up properly, you can run this:
-  ```sh
-  git --version
-  node --version
-  npm --version
-  ```
+After you've made sure to have all the tools installed, you should be able to just run a few commands to get set up
 
-### Installation
+```
+git clone git@github.com:davitJabushanuri/advice-generator.git
+cd advice-generator
+npm install
+npm start
+```
 
-After you've made sure to have all the tools installed, you should be able to just run a few commands to get set up:
+### :hammer: Built With
 
-   ```sh
-   git clone git@github.com:davitJabushanuri/qr-code-component.git
-   cd qr-code-component
-   npm start
-   ```
-  if npm start doesn't work, use live server extension
+- [React](reactjs.org)
+- [Sass](https://sass-lang.com/)
+- [Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
+## :book: What I learned
 
+How to delay a function call deliberately
 
-<!-- USAGE EXAMPLES -->
-## Usage
+```
+const asyncTimeout = ms => {
+		return new Promise(resolve => {
+			setTimeout(resolve, ms)
+		})
+	}
+```
 
-You can scan the QR code and it will take you to the Frontend Masters page
+Call this function in any other function with desired `ms` argument.For example `asyncTimeout(1000)`
 
-<!-- CONTRIBUTING -->
-## Contributing
+```
+	const getAdvice = async () => {
+			setLoading(true)
+			await asyncTimeout(500)
+			const data = await fetch(adviceUrl)
+			const advice = await data.json()
+			setLoading(false)
+			setAdvice(advice.slip.advice)
+			setAdviceNumber(advice.slip.id)
+	                }
+```
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue.
+`asyncTimeout` function makes sure `getAdvice` function will be delayed for at least 0.5 seconds
 
-1. Fork the Project
-2. Create your Feature Branch
-3. Commit your Changes
-4. Push to the Branch
-5. Open a Pull Request
+### :house: Development
 
-<!-- LICENSE -->
-## License
+- Add animations
+- Add light theme
 
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+### 🤝 Contribution
 
-<!-- CONTACT -->
-## Contact
+Your contributions are always welcome and appreciated. Following are the things you can do to contribute to this project.
 
-Davit Jabushanuri - [@Davit96526599](https://twitter.com/Davit96526599) - davitjabushanuri95@gmail.com
+- **Report a bug**
+  If you think you have encountered a bug, feel free to report it [here](https://github.com/davitJabushanuri/advice-generator/issues).
+  <br/>
+- **Request a feature**
+  If you have a suggestion that would make this better, You can request for a feature [here](https://github.com/davitJabushanuri/advice-generator/issues) with the tag "enhancement".
+  <br/>
 
-Project Link: [https://github.com/davitJabushanuri/qr-code-component](https://github.com/davitJabushanuri/qr-code-component)
+- **Create a pull request**
 
+  1. Fork the Project
+  2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+  3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+  4. Push to the Branch (`git push origin feature/AmazingFeature`)
+  5. Open a Pull Request
+     <br/>
 
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
+> If you are new to open-source, make sure to check read more about it [here](https://www.digitalocean.com/community/tutorial_series/an-introduction-to-open-source) and learn more about creating a pull request [here](https://www.digitalocean.com/community/tutorials/how-to-create-a-pull-request-on-github).
 
-* [Frontend Masters](https://www.frontendmentor.io/)
-* [GitHub Pages](https://pages.github.com)
+## :star2: Acknowledgment
 
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[product-screenshot]: images/template.png
+- [Frontend Masters](https://www.frontendmentor.io/home)
+- [React](reactjs.org)

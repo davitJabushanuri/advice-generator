@@ -100,3 +100,7 @@ Your contributions are always welcome and appreciated. Following are the things 
 
 - [Frontend Masters](https://www.frontendmentor.io/home)
 - [React](reactjs.org)
+
+### 📝 License
+
+This project is [MIT]() licensed.

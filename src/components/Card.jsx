@@ -6,7 +6,7 @@ import Loading from '../images/loading-animation.svg'
 const Card = ({ advice, adviceNumber, getAdvice, loading }) => {
 	return (
 		<div className='card'>
-			<h4 className='card__adviceNumber'>ADVICE # {adviceNumber}</h4>
+			<h4 className='card__adviceNumber'>ADVICE #{adviceNumber}</h4>
 			<h2 className='card__advice'>"{advice}"</h2>
 			<div className='card__divider'>
 				<img src={Divider} alt='' />
